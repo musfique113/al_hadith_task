@@ -2,9 +2,14 @@ import 'package:al_hadith_task/application/theme_data/app_colors.dart';
 import 'package:al_hadith_task/application/theme_data/text_styles.dart';
 import 'package:al_hadith_task/core/services/local_database/database_provider.dart';
 import 'package:al_hadith_task/features/common/presentation/widgets/widgets.dart';
+import 'package:al_hadith_task/features/home/data/models/books.dart';
+import 'package:al_hadith_task/features/home/data/models/hadith.dart';
 import 'package:al_hadith_task/features/home/presentation/screens/widgets/hadith_details_title_section.dart';
+import 'package:al_hadith_task/features/home/presentation/state_holders/book_controller.dart';
+import 'package:al_hadith_task/features/home/presentation/state_holders/hadith_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,7 +19,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   Future<void> setUpAppUtils() async {
     await DBProvider.db.initDB();
   }
@@ -23,18 +27,23 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
-      body: DefaultAppBody(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding:
-                const EdgeInsets.only(left: 12, right: 12, top: 14, bottom: 27),
-            child: Column(
-              children: [
-                _buildChapterTitleAndDescriptionSection(),
-                const Gap(14),
-                _hadithDetailsSection()
-              ],
-            ),
+      // body: buildDefaultAppBody(),
+      body: testBody(),
+    );
+  }
+
+  DefaultAppBody buildDefaultAppBody() {
+    return DefaultAppBody(
+      child: SingleChildScrollView(
+        child: Padding(
+          padding:
+              const EdgeInsets.only(left: 12, right: 12, top: 14, bottom: 27),
+          child: Column(
+            children: [
+              _buildChapterTitleAndDescriptionSection(),
+              const Gap(14),
+              _hadithDetailsSection()
+            ],
           ),
         ),
       ),
@@ -119,7 +128,8 @@ Widget _hadithDetailsSection() {
         const Gap(10),
         Text(
           'সংকলক : শাইখ ইমামুল হুজ্জাহ আবু ‘আবদুল্লাহ মুহাম্মাদ বিন ইসমা’ঈল বিন ইবরাহীম বিন মুগীরাহ্‌ আল বুখারী আল-জু’ফী। মোট হাদীস সংখ্যা : ৭৫৬৩ টি। প্রকাশনী : তাওহীদ পাবলিকেশন্স। মৌলিক হাদীস গ্রন্থ হিসাবে সহীহুল বুখারী গ্রন্থটি হাদীসের কিতাবগুলির মধ্যে সর্বশ্রেষ্ঠ। শুধু তাই নয় এর সংশ্লিষ্ট ব্যক্তিগবের্গর সর্বজন স্বীকৃত মন্তব্য হলো : আল কুরআনের পরে মানব রচিত বা সংকলিত গ্রন্থের মধ্যে সর্বশ্রেষ্ঠ কিতাব নিঃসন্দেহে সহীহুল বুখারী। বুখারী সংকলন করতে গিয়ে ইমাম বুখারী (রহঃ) কে যে কী পরিমাণ পরিশ্রম ও সাধনা করতে হয়েছে তা বর্ণনাতীত। মহান আল্লাহ তা’আলা তাঁর এই পরিশ্রমকে ক্ববুল করুন এবং এ মহান সাদাকায়ে যারিয়ার জন্য তাঁকে জান্নাতুল ফেরদৌস-এর পুরষ্কারে ভুষিত করুন। - আমীন।',
-          style: TextStyles.regular14.copyWith(color: jetBlack,fontFamily: 'Kalpurush'),
+          style: TextStyles.regular14
+              .copyWith(color: jetBlack, fontFamily: 'Kalpurush'),
           textAlign: TextAlign.left,
         ),
         const Gap(20),
@@ -129,6 +139,53 @@ Widget _hadithDetailsSection() {
           textAlign: TextAlign.left,
         ),
       ],
+    ),
+  );
+
+}
+
+// Widget testBody() {
+//   return DefaultAppBody(
+//     child: Center(
+//       child: Obx(() {
+//         return Visibility(
+//           replacement: Text('No data'),
+//           visible: Get.find<DataController>().booksList.isNotEmpty,
+//           child: ListView.builder(
+//             itemCount: Get.find<DataController>().booksList.length,
+//             itemBuilder: (context, index) {
+//               final Books books = Get.find<DataController>().booksList[index];
+//               return ListTile(
+//                 title: Text(books.title),
+//                 subtitle: Text(books.bookName),
+//               );
+//             },
+//           ),
+//         );
+//       }),
+//     ),
+//   );
+// }
+
+Widget testBody() {
+  return DefaultAppBody(
+    child: Center(
+      child: Obx(() {
+        return Visibility(
+          replacement: Text('No data'),
+          visible: Get.find<HadithController>().hadithList.isNotEmpty,
+          child: ListView.builder(
+            itemCount: Get.find<HadithController>().hadithList.length,
+            itemBuilder: (context, index) {
+              final Hadith hadith = Get.find<HadithController>().hadithList[index];
+              return ListTile(
+                title: Text(hadith.bookName),
+                subtitle: Text(hadith.hadithId.toString()),
+              );
+            },
+          ),
+        );
+      }),
     ),
   );
 }
