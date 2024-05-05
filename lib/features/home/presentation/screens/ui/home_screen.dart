@@ -1,12 +1,23 @@
 import 'package:al_hadith_task/application/theme_data/app_colors.dart';
 import 'package:al_hadith_task/application/theme_data/text_styles.dart';
+import 'package:al_hadith_task/core/services/local_database/database_provider.dart';
 import 'package:al_hadith_task/features/common/presentation/widgets/widgets.dart';
 import 'package:al_hadith_task/features/home/presentation/screens/widgets/hadith_details_title_section.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+
+  Future<void> setUpAppUtils() async {
+    await DBProvider.db.initDB();
+  }
 
   @override
   Widget build(BuildContext context) {
