@@ -1,9 +1,9 @@
 import 'package:al_hadith_task/application/theme_data/text_styles.dart';
+import 'package:al_hadith_task/features/books/data/model/books.dart';
+import 'package:al_hadith_task/features/books/presentation/state_holders/book_controller.dart';
+import 'package:al_hadith_task/features/chapters/data/model/chapter.dart';
 import 'package:al_hadith_task/features/common/presentation/widgets/widgets.dart';
-import 'package:al_hadith_task/features/home/data/models/books.dart';
-import 'package:al_hadith_task/features/home/data/models/chapter.dart';
-import 'package:al_hadith_task/features/home/presentation/screens/widgets/hadith_section_and_details.dart';
-import 'package:al_hadith_task/features/home/presentation/state_holders/book_controller.dart';
+import 'package:al_hadith_task/features/hadith/presentation/ui/widgets/hadith_section_and_details.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';

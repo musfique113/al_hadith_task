@@ -1,5 +1,5 @@
-import 'package:al_hadith_task/features/home/data/models/chapter.dart';
-import 'package:al_hadith_task/features/home/data/repositories/data_repository.dart';
+import 'package:al_hadith_task/features/chapters/data/model/chapter.dart';
+import 'package:al_hadith_task/features/common/data/repositories/data_repository.dart';
 import 'package:get/get.dart';
 
 class ChapterController extends GetxController {

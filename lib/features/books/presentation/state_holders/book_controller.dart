@@ -1,5 +1,5 @@
-import 'package:al_hadith_task/features/home/data/models/books.dart';
-import 'package:al_hadith_task/features/home/data/repositories/data_repository.dart';
+import 'package:al_hadith_task/features/books/data/model/books.dart';
+import 'package:al_hadith_task/features/common/data/repositories/data_repository.dart';
 import 'package:get/get.dart';
 
 class BookController extends GetxController {

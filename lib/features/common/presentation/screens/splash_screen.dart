@@ -1,6 +1,6 @@
 import 'package:al_hadith_task/application/assets_helper/assets_path.dart';
 import 'package:al_hadith_task/application/theme_data/app_colors.dart';
-import 'package:al_hadith_task/features/home/presentation/screens/ui/books_screen.dart';
+import 'package:al_hadith_task/features/books/presentation/ui/screens/books_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';

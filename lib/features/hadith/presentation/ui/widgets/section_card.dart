@@ -1,7 +1,7 @@
 import 'package:al_hadith_task/application/theme_data/app_colors.dart';
 import 'package:al_hadith_task/application/theme_data/text_styles.dart';
 import 'package:al_hadith_task/features/common/presentation/widgets/widgets.dart';
-import 'package:al_hadith_task/features/home/data/models/section.dart';
+import 'package:al_hadith_task/features/hadith/data/models/section.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
