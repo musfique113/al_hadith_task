@@ -8,3 +8,4 @@ const Color whiteSmoke = Color(0xFFF4F4F4);
 const Color antiFlashWhite = Color(0xFFEFEFEF);
 const Color marengo = Color(0xFF5D646F);
 const Color spanishGray = Color(0xFF9a9a9a);
+const Color charcoal = Color(0xFF35414D);
