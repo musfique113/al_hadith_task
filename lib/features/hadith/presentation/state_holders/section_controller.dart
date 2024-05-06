@@ -1,5 +1,5 @@
-import 'package:al_hadith_task/features/home/data/models/section.dart';
-import 'package:al_hadith_task/features/home/data/repositories/data_repository.dart';
+import 'package:al_hadith_task/features/common/data/repositories/data_repository.dart';
+import 'package:al_hadith_task/features/hadith/data/models/section.dart';
 import 'package:get/get.dart';
 
 class SectionController extends GetxController {

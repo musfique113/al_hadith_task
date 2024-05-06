@@ -2,7 +2,7 @@ import 'package:al_hadith_task/application/assets_helper/assets_path.dart';
 import 'package:al_hadith_task/application/theme_data/app_colors.dart';
 import 'package:al_hadith_task/application/theme_data/text_styles.dart';
 import 'package:al_hadith_task/features/common/presentation/widgets/widgets.dart';
-import 'package:al_hadith_task/features/home/data/models/hadith.dart';
+import 'package:al_hadith_task/features/hadith/data/models/hadith.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -38,14 +38,12 @@ class HadithDetailsTitleSection extends StatelessWidget {
                       TextSpan(
                         text: 'হাদিস: ',
                         style: TextStyles.heavy16.copyWith(
-                            fontWeight: FontWeight.w500,
-                            color: marengo),
+                            fontWeight: FontWeight.w500, color: marengo),
                       ),
                       TextSpan(
                         text: hadith.hadithId.toString(),
                         style: TextStyles.heavy16.copyWith(
-                            fontWeight: FontWeight.w700,
-                            color: viridian),
+                            fontWeight: FontWeight.w700, color: viridian),
                       ),
                     ],
                   ),

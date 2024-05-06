@@ -1,11 +1,11 @@
 import 'dart:math';
 
-import 'package:al_hadith_task/features/home/data/models/hadith.dart';
-import 'package:al_hadith_task/features/home/data/models/section.dart';
-import 'package:al_hadith_task/features/home/presentation/screens/widgets/hadith_details_card.dart';
-import 'package:al_hadith_task/features/home/presentation/screens/widgets/section_card.dart';
-import 'package:al_hadith_task/features/home/presentation/state_holders/hadith_controller.dart';
-import 'package:al_hadith_task/features/home/presentation/state_holders/section_controller.dart';
+import 'package:al_hadith_task/features/hadith/data/models/hadith.dart';
+import 'package:al_hadith_task/features/hadith/data/models/section.dart';
+import 'package:al_hadith_task/features/hadith/presentation/state_holders/hadith_controller.dart';
+import 'package:al_hadith_task/features/hadith/presentation/state_holders/section_controller.dart';
+import 'package:al_hadith_task/features/hadith/presentation/ui/widgets/hadith_details_card.dart';
+import 'package:al_hadith_task/features/hadith/presentation/ui/widgets/section_card.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';

@@ -1,8 +1,8 @@
 import 'package:al_hadith_task/core/services/local_database/database_provider.dart';
-import 'package:al_hadith_task/features/home/data/models/books.dart';
-import 'package:al_hadith_task/features/home/data/models/chapter.dart';
-import 'package:al_hadith_task/features/home/data/models/hadith.dart';
-import 'package:al_hadith_task/features/home/data/models/section.dart';
+import 'package:al_hadith_task/features/books/data/model/books.dart';
+import 'package:al_hadith_task/features/chapters/data/model/chapter.dart';
+import 'package:al_hadith_task/features/hadith/data/models/hadith.dart';
+import 'package:al_hadith_task/features/hadith/data/models/section.dart';
 import 'package:sqflite/sqflite.dart';
 
 class LocalDataSource {

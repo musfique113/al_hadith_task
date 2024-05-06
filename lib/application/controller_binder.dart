@@ -1,9 +1,9 @@
-import 'package:al_hadith_task/features/home/data/repositories/data_repository.dart';
-import 'package:al_hadith_task/features/home/data/repositories/local_data_source.dart';
-import 'package:al_hadith_task/features/home/presentation/state_holders/book_controller.dart';
-import 'package:al_hadith_task/features/home/presentation/state_holders/chapter_controller.dart';
-import 'package:al_hadith_task/features/home/presentation/state_holders/hadith_controller.dart';
-import 'package:al_hadith_task/features/home/presentation/state_holders/section_controller.dart';
+import 'package:al_hadith_task/features/books/presentation/state_holders/book_controller.dart';
+import 'package:al_hadith_task/features/chapters/presentation/state_holders/chapter_controller.dart';
+import 'package:al_hadith_task/features/common/data/repositories/data_repository.dart';
+import 'package:al_hadith_task/features/common/data/repositories/local_data_source.dart';
+import 'package:al_hadith_task/features/hadith/presentation/state_holders/hadith_controller.dart';
+import 'package:al_hadith_task/features/hadith/presentation/state_holders/section_controller.dart';
 import 'package:get/get.dart';
 
 class ControllerBinder extends Bindings {

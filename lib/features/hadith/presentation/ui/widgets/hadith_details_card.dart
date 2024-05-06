@@ -1,8 +1,8 @@
 import 'package:al_hadith_task/application/theme_data/app_colors.dart';
 import 'package:al_hadith_task/application/theme_data/text_styles.dart';
 import 'package:al_hadith_task/features/common/presentation/widgets/widgets.dart';
-import 'package:al_hadith_task/features/home/data/models/hadith.dart';
-import 'package:al_hadith_task/features/home/presentation/screens/widgets/hadith_details_title_section.dart';
+import 'package:al_hadith_task/features/hadith/data/models/hadith.dart';
+import 'package:al_hadith_task/features/hadith/presentation/ui/widgets/hadith_details_title_section.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 

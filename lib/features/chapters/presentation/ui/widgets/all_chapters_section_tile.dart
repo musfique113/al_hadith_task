@@ -1,18 +1,18 @@
 import 'package:al_hadith_task/application/theme_data/app_colors.dart';
 import 'package:al_hadith_task/application/theme_data/text_styles.dart';
+import 'package:al_hadith_task/features/chapters/data/model/chapter.dart';
 import 'package:al_hadith_task/features/common/presentation/widgets/widgets.dart';
-import 'package:al_hadith_task/features/home/data/models/books.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-class AllBooksSectionTile extends StatelessWidget {
-  const AllBooksSectionTile({
+class AllChaptersSectionTile extends StatelessWidget {
+  const AllChaptersSectionTile({
     super.key,
-    required this.books,
+    required this.chapter,
     this.onTap,
   });
 
-  final Books books;
+  final Chapter chapter;
   final VoidCallback? onTap;
 
   @override
@@ -23,29 +23,23 @@ class AllBooksSectionTile extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.only(left: 4, right: 4, top: 8, bottom: 8),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
+              HexagonShape(
+                textInside: chapter.chapterId.toString(),
+              ),
+              const Gap(10),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  HexagonShape(
-                    textInside: books.abvrCode,
-                  ),
-                  const Gap(10),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      _headerWithBodyText(books.title, books.titleAr,
-                          CrossAxisAlignment.start),
-                    ],
-                  ),
+                  _headerWithBodyText(
+                      chapter.title,
+                      'হাদিসের রেঞ্জ: ${chapter.hadisRange}',
+                      CrossAxisAlignment.start),
                 ],
               ),
-              _headerWithBodyText(books.numberOfHadis.toString(), books.bookName,
-                  CrossAxisAlignment.end),
             ],
           ),
         ),
@@ -66,7 +60,7 @@ class AllBooksSectionTile extends StatelessWidget {
         ),
         Text(
           bodyText,
-          style: TextStyles.regular12.copyWith(color: jetBlack),
+          style: TextStyles.medium14.copyWith(color: jetBlack),
         ),
       ],
     );
