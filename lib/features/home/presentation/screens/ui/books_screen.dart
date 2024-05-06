@@ -32,16 +32,14 @@ class _BooksScreenState extends State<BooksScreen> {
         child: Padding(
           padding:
               const EdgeInsets.only(left: 12, right: 12, top: 14, bottom: 27),
-          child: Obx(
-            () => ListView.separated(
-              separatorBuilder: (_, __) => const Gap(12),
-              itemCount: Get.find<BookController>().booksList.length,
-              shrinkWrap: true,
-              itemBuilder: (context, index) {
-                Books books = Get.find<BookController>().booksList[index];
-                return AllBooksSectionTile(books: books, onTap: _onTapTile);
-              },
-            ),
+          child: ListView.separated(
+            separatorBuilder: (_, __) => const Gap(12),
+            itemCount: Get.find<BookController>().booksList.length,
+            shrinkWrap: true,
+            itemBuilder: (context, index) {
+              Books books = Get.find<BookController>().booksList[index];
+              return AllBooksSectionTile(books: books, onTap: _onTapTile);
+            },
           ),
         ),
       ),

@@ -8,7 +8,8 @@ import 'package:gap/gap.dart';
 class AllBooksSectionTile extends StatelessWidget {
   const AllBooksSectionTile({
     super.key,
-    required this.books, this.onTap,
+    required this.books,
+    this.onTap,
   });
 
   final Books books;
@@ -20,7 +21,7 @@ class AllBooksSectionTile extends StatelessWidget {
       onTap: onTap,
       child: CustomContainerWidget(
         child: Padding(
-          padding: const EdgeInsets.only(left: 4,right: 4,top: 8,bottom: 8),
+          padding: const EdgeInsets.only(left: 4, right: 4, top: 8, bottom: 8),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -29,7 +30,7 @@ class AllBooksSectionTile extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                   HexagonShape(
+                  HexagonShape(
                     textInside: books.abvrCode,
                   ),
                   const Gap(10),
@@ -37,14 +38,14 @@ class AllBooksSectionTile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      _headerWithBodyText(
-                          books.title, books.bookName, CrossAxisAlignment.start),
+                      _headerWithBodyText(books.title, books.bookName,
+                          CrossAxisAlignment.start),
                     ],
                   ),
                 ],
               ),
-              _headerWithBodyText(
-                  books.numberOfHadis.toString(), 'Books Name', CrossAxisAlignment.end),
+              _headerWithBodyText(books.numberOfHadis.toString(), 'Books Name',
+                  CrossAxisAlignment.end),
             ],
           ),
         ),
@@ -60,10 +61,8 @@ class AllBooksSectionTile extends StatelessWidget {
       children: [
         Text(
           headerText,
-          style: TextStyles.heavy16.copyWith(
-              fontWeight: FontWeight.w700,
-              color: viridian,
-              fontFamily: 'Kalpurush'),
+          style: TextStyles.heavy16
+              .copyWith(fontWeight: FontWeight.w700, color: viridian),
         ),
         Text(
           bodyText,

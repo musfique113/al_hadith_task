@@ -2,13 +2,17 @@ import 'package:al_hadith_task/application/assets_helper/assets_path.dart';
 import 'package:al_hadith_task/application/theme_data/app_colors.dart';
 import 'package:al_hadith_task/application/theme_data/text_styles.dart';
 import 'package:al_hadith_task/features/common/presentation/widgets/widgets.dart';
+import 'package:al_hadith_task/features/home/data/models/hadith.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 class HadithDetailsTitleSection extends StatelessWidget {
   const HadithDetailsTitleSection({
     super.key,
+    required this.hadith,
   });
+
+  final Hadith hadith;
 
   @override
   Widget build(BuildContext context) {
@@ -32,26 +36,22 @@ class HadithDetailsTitleSection extends StatelessWidget {
                   text: TextSpan(
                     children: [
                       TextSpan(
-                        text: 'Hadith No: ',
-                        style: TextStyles.heavy14.copyWith(
+                        text: 'হাদিস: ',
+                        style: TextStyles.heavy16.copyWith(
                             fontWeight: FontWeight.w500,
-                            fontSize: 13,
-                            color: marengo,
-                            fontFamily: 'Poppins'),
+                            color: marengo),
                       ),
                       TextSpan(
-                        text: "01",
-                        style: TextStyles.heavy14.copyWith(
+                        text: hadith.hadithId.toString(),
+                        style: TextStyles.heavy16.copyWith(
                             fontWeight: FontWeight.w700,
-                            fontSize: 13,
-                            color: viridian,
-                            fontFamily: 'Lato'),
+                            color: viridian),
                       ),
                     ],
                   ),
                 ),
                 Text(
-                  'Books Name',
+                  hadith.bookName,
                   style: TextStyles.regular12.copyWith(color: jetBlack),
                 ),
               ],
@@ -68,7 +68,7 @@ class HadithDetailsTitleSection extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     left: 10, right: 10, top: 4, bottom: 4),
                 child: Text(
-                  'Sahih',
+                  hadith.grade,
                   style: TextStyles.medium12.copyWith(color: white),
                 ),
               ),

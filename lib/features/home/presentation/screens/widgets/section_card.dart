@@ -1,13 +1,9 @@
 import 'package:al_hadith_task/application/theme_data/app_colors.dart';
 import 'package:al_hadith_task/application/theme_data/text_styles.dart';
 import 'package:al_hadith_task/features/common/presentation/widgets/widgets.dart';
-import 'package:al_hadith_task/features/home/data/models/hadith.dart';
 import 'package:al_hadith_task/features/home/data/models/section.dart';
-import 'package:al_hadith_task/features/home/presentation/screens/widgets/hadith_details_card.dart';
-import 'package:al_hadith_task/features/home/presentation/state_holders/hadith_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:get/get.dart';
 
 class SectionCard extends StatefulWidget {
   const SectionCard({
@@ -71,21 +67,6 @@ class _SectionCardState extends State<SectionCard> {
               ),
               _buildVisibilitySection(),
             ],
-          ),
-        ),
-        const Gap(14),
-        Obx(
-          () => ListView.separated(
-            separatorBuilder: (_, __) => const Gap(12),
-            itemCount: Get.find<HadithController>().hadithsList.length,
-            shrinkWrap: true,
-            primary: false,
-            itemBuilder: (context, index) {
-              Hadith hadith = Get.find<HadithController>().hadithsList[index];
-              return HadithDetailsCard(
-                hadith: hadith,
-              );
-            },
           ),
         ),
       ],

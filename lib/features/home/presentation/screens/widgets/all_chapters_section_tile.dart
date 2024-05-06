@@ -57,13 +57,12 @@ class AllChaptersSectionTile extends StatelessWidget {
           headerText,
           style: TextStyles.heavy16.copyWith(
               fontWeight: FontWeight.w700,
-              color: viridian,
-              fontFamily: 'Kalpurush'),
+              color: viridian),
         ),
         Text(
           bodyText,
           style: TextStyles.medium14
-              .copyWith(color: jetBlack, fontFamily: 'Kalpurush'),
+              .copyWith(color: jetBlack),
         ),
       ],
     );

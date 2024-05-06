@@ -20,8 +20,7 @@ class _ChaptersScreenState extends State<ChaptersScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(Icons.drag_handle, color: white),
-        title: const Text('Al chapters'),
+        title: const Text('All chapters'),
         actions: const [
           Icon(Icons.search, color: white),
           Gap(4),
@@ -36,21 +35,19 @@ class _ChaptersScreenState extends State<ChaptersScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Obx(
-                () => ListView.separated(
-                  separatorBuilder: (_, __) => const Gap(12),
-                  itemCount: Get.find<ChapterController>().chaptersList.length,
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
-                    Chapter chapter =
-                        Get.find<ChapterController>().chaptersList[index];
-                    return AllChaptersSectionTile(
-                      chapter: chapter,
-                      onTap: _onTapTile,
-                    );
-                  },
-                ),
-              )
+              ListView.separated(
+                separatorBuilder: (_, __) => const Gap(12),
+                itemCount: Get.find<ChapterController>().chaptersList.length,
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  Chapter chapter =
+                      Get.find<ChapterController>().chaptersList[index];
+                  return AllChaptersSectionTile(
+                    chapter: chapter,
+                    onTap: _onTapTile,
+                  );
+                },
+              ),
             ],
           ),
         ),
