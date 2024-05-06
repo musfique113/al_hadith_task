@@ -24,7 +24,8 @@ class HexagonShape extends StatelessWidget {
         child: Text(
           textInside,
           textAlign: TextAlign.center,
-          style: TextStyles.medium14.copyWith(color: white,fontFamily: 'Poppins'),
+          style:
+              TextStyles.medium14.copyWith(color: white, fontFamily: 'Poppins'),
         ),
       ),
     );
