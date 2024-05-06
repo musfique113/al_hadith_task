@@ -1,5 +1,6 @@
 import 'package:al_hadith_task/application/theme_data/app_colors.dart';
 import 'package:al_hadith_task/features/common/presentation/widgets/default_app_body.dart';
+import 'package:al_hadith_task/features/home/data/models/books.dart';
 import 'package:al_hadith_task/features/home/data/models/chapter.dart';
 import 'package:al_hadith_task/features/home/presentation/screens/ui/hadith_details_screen.dart';
 import 'package:al_hadith_task/features/home/presentation/screens/widgets/all_chapters_section_tile.dart';
@@ -9,7 +10,9 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
 class ChaptersScreen extends StatefulWidget {
-  const ChaptersScreen({super.key});
+  const ChaptersScreen({super.key, this.books});
+
+  final Books? books;
 
   @override
   State<ChaptersScreen> createState() => _ChaptersScreenState();
@@ -44,7 +47,14 @@ class _ChaptersScreenState extends State<ChaptersScreen> {
                       Get.find<ChapterController>().chaptersList[index];
                   return AllChaptersSectionTile(
                     chapter: chapter,
-                    onTap: _onTapTile,
+                    onTap: () {
+                      Get.to(
+                        () => HadithDetailsScreen(
+                          chapter: chapter,
+                          books: widget.books,
+                        ),
+                      );
+                    },
                   );
                 },
               ),
@@ -54,10 +64,4 @@ class _ChaptersScreenState extends State<ChaptersScreen> {
       ),
     );
   }
-}
-
-void _onTapTile() {
-  Get.to(
-    () => const HadithDetailsScreen(),
-  );
 }

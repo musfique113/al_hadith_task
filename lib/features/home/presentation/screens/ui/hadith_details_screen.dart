@@ -1,6 +1,7 @@
 import 'package:al_hadith_task/application/theme_data/text_styles.dart';
 import 'package:al_hadith_task/features/common/presentation/widgets/widgets.dart';
 import 'package:al_hadith_task/features/home/data/models/books.dart';
+import 'package:al_hadith_task/features/home/data/models/chapter.dart';
 import 'package:al_hadith_task/features/home/presentation/screens/widgets/hadith_section_and_details.dart';
 import 'package:al_hadith_task/features/home/presentation/state_holders/book_controller.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +9,10 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
 class HadithDetailsScreen extends StatefulWidget {
-  const HadithDetailsScreen({super.key});
+  const HadithDetailsScreen({super.key, this.chapter, this.books});
+
+  final Chapter? chapter;
+  final Books? books;
 
   @override
   State<HadithDetailsScreen> createState() => _HadithDetailsScreenState();
@@ -41,12 +45,12 @@ class _HadithDetailsScreenState extends State<HadithDetailsScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "Sahih Bukhari",
-            style: TextStyles.heavy16.copyWith(fontFamily: 'Poppins'),
+            widget.books!.title,
+            style: TextStyles.heavy16,
           ),
           const Gap(5),
           Text(
-            "Revelation",
+            widget.chapter!.title,
             style: TextStyles.medium12,
           ),
         ],

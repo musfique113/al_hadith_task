@@ -38,17 +38,20 @@ class _BooksScreenState extends State<BooksScreen> {
             shrinkWrap: true,
             itemBuilder: (context, index) {
               Books books = Get.find<BookController>().booksList[index];
-              return AllBooksSectionTile(books: books, onTap: _onTapTile);
+              return AllBooksSectionTile(
+                books: books,
+                onTap: () {
+                  Get.to(
+                    () => ChaptersScreen(
+                      books: books,
+                    ),
+                  );
+                },
+              );
             },
           ),
         ),
       ),
     );
   }
-}
-
-void _onTapTile() {
-  Get.to(
-    () => const ChaptersScreen(),
-  );
 }
