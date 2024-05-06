@@ -34,7 +34,7 @@ class Hadith {
         bookId: json['book_id'],
         bookName: json['book_name'],
         chapterId: json['chapter_id'],
-        sectionId: json[''],
+        sectionId: json['section_id'],
         narrator: json['narrator'],
         bn: json['bn'],
         ar: json['ar'],
