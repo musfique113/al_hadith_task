@@ -5,6 +5,7 @@ import 'package:al_hadith_task/features/common/presentation/widgets/widgets.dart
 import 'package:al_hadith_task/features/hadith/data/models/hadith.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
 
 class HadithDetailsTitleSection extends StatelessWidget {
   const HadithDetailsTitleSection({
@@ -28,32 +29,7 @@ class HadithDetailsTitleSection extends StatelessWidget {
               textInside: 'B',
             ),
             const Gap(10),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                RichText(
-                  text: TextSpan(
-                    children: [
-                      TextSpan(
-                        text: 'হাদিস: ',
-                        style: TextStyles.heavy16.copyWith(
-                            fontWeight: FontWeight.w500, color: marengo),
-                      ),
-                      TextSpan(
-                        text: hadith.hadithId.toString(),
-                        style: TextStyles.heavy16.copyWith(
-                            fontWeight: FontWeight.w700, color: viridian),
-                      ),
-                    ],
-                  ),
-                ),
-                Text(
-                  hadith.bookName,
-                  style: TextStyles.regular12.copyWith(color: jetBlack),
-                ),
-              ],
-            ),
+            _buildTitleSection(),
           ],
         ),
         Row(
@@ -72,9 +48,53 @@ class HadithDetailsTitleSection extends StatelessWidget {
               ),
             ),
             const Gap(10),
-            SvgBuilder(path: AssetsPath.threeDotIconSvg)
+            _buildThreeDot()
           ],
         )
+      ],
+    );
+  }
+
+  Widget _buildThreeDot() {
+    return InkWell(
+      onTap: () {
+        Get.bottomSheet(
+          const BottomModelSheetWidget(),
+          isDismissible: true,
+          enableDrag: true,
+          elevation: 0,
+          clipBehavior: Clip.none
+        );
+      },
+      child: SvgBuilder(path: AssetsPath.threeDotIconSvg),
+    );
+  }
+
+  Widget _buildTitleSection() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        RichText(
+          text: TextSpan(
+            children: [
+              TextSpan(
+                text: 'হাদিস: ',
+                style: TextStyles.heavy16
+                    .copyWith(fontWeight: FontWeight.w500, color: marengo),
+              ),
+              TextSpan(
+                text: hadith.hadithId.toString(),
+                style: TextStyles.heavy16
+                    .copyWith(fontWeight: FontWeight.w700, color: viridian),
+              ),
+            ],
+          ),
+        ),
+        Text(
+          hadith.bookName,
+          style: TextStyles.regular12.copyWith(color: jetBlack),
+        ),
       ],
     );
   }
