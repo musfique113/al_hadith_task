@@ -1,6 +1,6 @@
 import 'package:al_hadith_task/application/assets_helper/assets_path.dart';
 import 'package:al_hadith_task/application/theme_data/app_colors.dart';
-import 'package:al_hadith_task/features/home/presentation/screens/ui/home_screen.dart';
+import 'package:al_hadith_task/features/home/presentation/screens/ui/books_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> moveToNextScreen() async {
     await Future.delayed(const Duration(seconds: 3));
-    Get.off(() => const HomeScreen());
+    Get.off(() => const BooksScreen());
   }
 
   @override

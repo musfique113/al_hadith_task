@@ -14,14 +14,14 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class HadithDetailsScreen extends StatefulWidget {
+  const HadithDetailsScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HadithDetailsScreen> createState() => _HadithDetailsScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HadithDetailsScreenState extends State<HadithDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,11 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const Gap(14),
               _hadithDetailsSection(),
               const Gap(14),
-              // testBook(),
-              const Gap(14),
-              testChapter(),
-              // testHadith(),
-              // testSection()
+              testBook(),
             ],
           ),
         ),
