@@ -7,7 +7,7 @@ class BookController extends GetxController {
 
   BookController(this._dataRepository);
 
-RxList<Books> booksList = <Books>[].obs;
+  RxList<Books> booksList = <Books>[].obs;
 
   @override
   void onInit() {
@@ -20,4 +20,3 @@ RxList<Books> booksList = <Books>[].obs;
     booksList.assignAll(bookList);
   }
 }
-

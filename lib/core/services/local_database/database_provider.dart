@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:al_hadith_task/application/assets_helper/assets_path.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
@@ -40,7 +41,7 @@ class DBProvider {
         // Copy the database from assets
         ByteData data = await rootBundle.load(AssetsPath.database);
         List<int> bytes =
-        data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
+            data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
         await File(path).writeAsBytes(bytes, flush: true);
 
         if (kDebugMode) {
@@ -56,6 +57,4 @@ class DBProvider {
     // Open the database
     _database = await openDatabase(path, version: 1);
   }
-
 }
-

@@ -7,7 +7,7 @@ class SectionController extends GetxController {
 
   SectionController(this._dataRepository);
 
-RxList<Section> sectionsList = <Section>[].obs;
+  RxList<Section> sectionsList = <Section>[].obs;
 
   @override
   void onInit() {
@@ -20,4 +20,3 @@ RxList<Section> sectionsList = <Section>[].obs;
     sectionsList.assignAll(sectionList);
   }
 }
-

@@ -222,7 +222,8 @@ Widget testSection() {
         shrinkWrap: true,
         itemCount: Get.find<SectionController>().sectionsList.length,
         itemBuilder: (context, index) {
-          final Section section = Get.find<SectionController>().sectionsList[index];
+          final Section section =
+              Get.find<SectionController>().sectionsList[index];
           return ListTile(
             title: Text(section.bookName),
             subtitle: Text(section.preface),
