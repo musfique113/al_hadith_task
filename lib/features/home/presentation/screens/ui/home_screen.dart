@@ -1,12 +1,15 @@
 import 'package:al_hadith_task/application/theme_data/app_colors.dart';
 import 'package:al_hadith_task/application/theme_data/text_styles.dart';
-import 'package:al_hadith_task/core/services/local_database/database_provider.dart';
 import 'package:al_hadith_task/features/common/presentation/widgets/widgets.dart';
 import 'package:al_hadith_task/features/home/data/models/books.dart';
+import 'package:al_hadith_task/features/home/data/models/chapter.dart';
 import 'package:al_hadith_task/features/home/data/models/hadith.dart';
+import 'package:al_hadith_task/features/home/data/models/section.dart';
 import 'package:al_hadith_task/features/home/presentation/screens/widgets/hadith_details_title_section.dart';
 import 'package:al_hadith_task/features/home/presentation/state_holders/book_controller.dart';
+import 'package:al_hadith_task/features/home/presentation/state_holders/chapter_controller.dart';
 import 'package:al_hadith_task/features/home/presentation/state_holders/hadith_controller.dart';
+import 'package:al_hadith_task/features/home/presentation/state_holders/section_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
@@ -19,20 +22,15 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  Future<void> setUpAppUtils() async {
-    await DBProvider.db.initDB();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
-      // body: buildDefaultAppBody(),
-      body: testBody(),
+      body: _homeScreenBody(),
     );
   }
 
-  DefaultAppBody buildDefaultAppBody() {
+  Widget _homeScreenBody() {
     return DefaultAppBody(
       child: SingleChildScrollView(
         child: Padding(
@@ -42,7 +40,13 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               _buildChapterTitleAndDescriptionSection(),
               const Gap(14),
-              _hadithDetailsSection()
+              _hadithDetailsSection(),
+              const Gap(14),
+              // testBook(),
+              const Gap(14),
+              testChapter(),
+              // testHadith(),
+              // testSection()
             ],
           ),
         ),
@@ -141,51 +145,90 @@ Widget _hadithDetailsSection() {
       ],
     ),
   );
-
 }
 
-// Widget testBody() {
-//   return DefaultAppBody(
-//     child: Center(
-//       child: Obx(() {
-//         return Visibility(
-//           replacement: Text('No data'),
-//           visible: Get.find<DataController>().booksList.isNotEmpty,
-//           child: ListView.builder(
-//             itemCount: Get.find<DataController>().booksList.length,
-//             itemBuilder: (context, index) {
-//               final Books books = Get.find<DataController>().booksList[index];
-//               return ListTile(
-//                 title: Text(books.title),
-//                 subtitle: Text(books.bookName),
-//               );
-//             },
-//           ),
-//         );
-//       }),
-//     ),
-//   );
-// }
-
-Widget testBody() {
-  return DefaultAppBody(
-    child: Center(
-      child: Obx(() {
-        return Visibility(
-          replacement: Text('No data'),
-          visible: Get.find<HadithController>().hadithList.isNotEmpty,
-          child: ListView.builder(
-            itemCount: Get.find<HadithController>().hadithList.length,
-            itemBuilder: (context, index) {
-              final Hadith hadith = Get.find<HadithController>().hadithList[index];
-              return ListTile(
-                title: Text(hadith.bookName),
-                subtitle: Text(hadith.hadithId.toString()),
-              );
-            },
+Widget testBook() {
+  return Obx(
+    () => ListView.separated(
+      separatorBuilder: (context, index) =>
+          const Divider(height: 0.5, color: Colors.black38),
+      physics: const ClampingScrollPhysics(),
+      shrinkWrap: true,
+      itemCount: Get.find<BookController>().booksList.length,
+      itemBuilder: (context, index) {
+        Books books = Get.find<BookController>().booksList[index];
+        return Container(
+          padding: const EdgeInsets.all(15),
+          child: Text(
+            '${books.bookName} ${books.title}',
           ),
         );
-      }),
+      },
     ),
   );
+}
+
+Widget testChapter() {
+  return Obx(
+    () => Visibility(
+      replacement: Text('No data'),
+      visible: Get.find<ChapterController>().chaptersList.isNotEmpty,
+      child: ListView.separated(
+        separatorBuilder: (context, index) =>
+            const Divider(height: 0.5, color: Colors.black38),
+        physics: const ClampingScrollPhysics(),
+        shrinkWrap: true,
+        itemCount: Get.find<ChapterController>().chaptersList.length,
+        itemBuilder: (context, index) {
+          Chapter chapter = Get.find<ChapterController>().chaptersList[index];
+          return Container(
+            padding: const EdgeInsets.all(15),
+            child: Text(
+              '${chapter.hadisRange} ${chapter.title}',
+            ),
+          );
+        },
+      ),
+    ),
+  );
+}
+
+Widget testHadith() {
+  return Obx(() {
+    return Visibility(
+      replacement: Text('No data'),
+      visible: Get.find<HadithController>().hadithsList.isNotEmpty,
+      child: ListView.builder(
+        shrinkWrap: true,
+        itemCount: Get.find<HadithController>().hadithsList.length,
+        itemBuilder: (context, index) {
+          final Hadith hadith = Get.find<HadithController>().hadithsList[index];
+          return ListTile(
+            title: Text(hadith.bookName),
+            subtitle: Text(hadith.hadithId.toString()),
+          );
+        },
+      ),
+    );
+  });
+}
+
+Widget testSection() {
+  return Obx(() {
+    return Visibility(
+      replacement: Text('No data'),
+      visible: Get.find<SectionController>().sectionsList.isNotEmpty,
+      child: ListView.builder(
+        shrinkWrap: true,
+        itemCount: Get.find<SectionController>().sectionsList.length,
+        itemBuilder: (context, index) {
+          final Section section = Get.find<SectionController>().sectionsList[index];
+          return ListTile(
+            title: Text(section.bookName),
+            subtitle: Text(section.preface),
+          );
+        },
+      ),
+    );
+  });
 }

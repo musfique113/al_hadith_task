@@ -1,7 +1,7 @@
 class Chapter {
   final int id;
-  final String chapterId;
-  final String bookId;
+  final int chapterId;
+  final int bookId;
   final String title;
   final int number;
   final String hadisRange;

@@ -7,13 +7,16 @@ class HadithController extends GetxController {
 
   HadithController(this._dataRepository);
 
-  final RxList<Hadith> _hadithList = RxList();
+  RxList<Hadith> hadithsList = <Hadith>[].obs;
 
-  RxList<Hadith> get hadithList => _hadithList;
+  @override
+  void onInit() {
+    super.onInit();
+    getHadithList();
+  }
 
-  Future<List<Hadith>> getHadith() async {
-    final response = await _dataRepository.getHadith();
-    _hadithList.value = response;
-    return response;
+  void getHadithList() async {
+    List<Hadith> hadithList = await _dataRepository.getHadith();
+    hadithsList.assignAll(hadithList);
   }
 }

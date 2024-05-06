@@ -7,13 +7,17 @@ class BookController extends GetxController {
 
   BookController(this._dataRepository);
 
-  final RxList<Books> _booksList = RxList();
+RxList<Books> booksList = <Books>[].obs;
 
-  RxList<Books> get booksList => _booksList;
+  @override
+  void onInit() {
+    super.onInit();
+    getBookList();
+  }
 
-  Future<List<Books>> getDraftOrders() async {
-    final response = await _dataRepository.getDraftOrders();
-    _booksList.value = response;
-    return response;
+  void getBookList() async {
+    List<Books> bookList = await _dataRepository.getBooksList();
+    booksList.assignAll(bookList);
   }
 }
+

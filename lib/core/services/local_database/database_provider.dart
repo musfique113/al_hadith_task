@@ -54,7 +54,8 @@ class DBProvider {
     }
 
     // Open the database
-    _database = await openDatabase(path);
+    _database = await openDatabase(path, version: 1);
   }
 
 }
+
