@@ -7,7 +7,7 @@ class AppThemeData {
 
   static final ThemeData _themeData = ThemeData(
     scaffoldBackgroundColor: viridian,
-    fontFamily: 'Inter',
+    fontFamily: 'Kalpurush',
     colorScheme: ColorScheme.fromSeed(
       seedColor: viridian,
       background: white,
