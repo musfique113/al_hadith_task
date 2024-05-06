@@ -7,7 +7,7 @@ class AppThemeData {
 
   static final ThemeData _themeData = ThemeData(
     scaffoldBackgroundColor: viridian,
-    fontFamily: 'Inter',
+    fontFamily: 'Kalpurush',
     colorScheme: ColorScheme.fromSeed(
       seedColor: viridian,
       background: white,
@@ -18,6 +18,7 @@ class AppThemeData {
 
   static final AppBarTheme _appBarTheme = AppBarTheme(
       backgroundColor: viridian,
+      iconTheme: const IconThemeData(color: white),
       toolbarHeight: 64,
       elevation: 0,
       titleTextStyle: TextStyles.heavy16.copyWith(color: white),
