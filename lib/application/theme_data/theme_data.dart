@@ -14,6 +14,10 @@ class AppThemeData {
       error: Colors.red,
     ),
     appBarTheme: _appBarTheme,
+    dialogTheme: const DialogTheme(
+      backgroundColor: white,
+      surfaceTintColor: white
+    )
   );
 
   static final AppBarTheme _appBarTheme = AppBarTheme(

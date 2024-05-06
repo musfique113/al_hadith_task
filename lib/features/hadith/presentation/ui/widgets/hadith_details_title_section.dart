@@ -34,37 +34,46 @@ class HadithDetailsTitleSection extends StatelessWidget {
         ),
         Row(
           children: [
-            CustomContainerWidget(
-              color: viridian,
-              borderRadius: BorderRadius.circular(32),
-              padding: EdgeInsets.zero,
-              child: Padding(
-                padding: const EdgeInsets.only(
-                    left: 10, right: 10, top: 4, bottom: 4),
-                child: Text(
-                  hadith.grade,
-                  style: TextStyles.medium12.copyWith(color: white),
-                ),
-              ),
-            ),
+            _sahihHadithChip(),
             const Gap(10),
-            _buildThreeDot()
+            _buildThreeDot(),
           ],
         )
       ],
     );
   }
 
+  Widget _sahihHadithChip() {
+    return InkWell(
+      onTap: () {
+        Get.dialog(
+          const SahihHadithPopupMessage(),
+        );
+      },
+      child: CustomContainerWidget(
+        color: viridian,
+        borderRadius: BorderRadius.circular(32),
+        padding: EdgeInsets.zero,
+        child: Padding(
+          padding:
+              const EdgeInsets.only(left: 10, right: 10, top: 4, bottom: 4),
+          child: Text(
+            hadith.grade,
+            style: TextStyles.medium12.copyWith(color: white),
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget _buildThreeDot() {
     return InkWell(
       onTap: () {
-        Get.bottomSheet(
-          const BottomModelSheetWidget(),
-          isDismissible: true,
-          enableDrag: true,
-          elevation: 0,
-          clipBehavior: Clip.none
-        );
+        Get.bottomSheet(const BottomModelSheetWidget(),
+            isDismissible: true,
+            enableDrag: true,
+            elevation: 0,
+            clipBehavior: Clip.none);
       },
       child: SvgBuilder(path: AssetsPath.threeDotIconSvg),
     );
