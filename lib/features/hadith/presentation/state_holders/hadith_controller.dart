@@ -7,7 +7,7 @@ class HadithController extends GetxController {
 
   HadithController(this._dataRepository);
 
-  RxList<Hadith> hadithsList = <Hadith>[].obs;
+List<Hadith> hadithsList = <Hadith>[];
 
   @override
   void onInit() {

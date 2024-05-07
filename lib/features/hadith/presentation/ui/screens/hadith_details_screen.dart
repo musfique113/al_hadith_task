@@ -58,22 +58,3 @@ class _HadithDetailsScreenState extends State<HadithDetailsScreen> {
     );
   }
 }
-
-Widget testBook() {
-  return ListView.separated(
-    separatorBuilder: (context, index) =>
-        const Divider(height: 0.5, color: Colors.black38),
-    physics: const ClampingScrollPhysics(),
-    shrinkWrap: true,
-    itemCount: Get.find<BookController>().booksList.length,
-    itemBuilder: (context, index) {
-      Books books = Get.find<BookController>().booksList[index];
-      return Container(
-        padding: const EdgeInsets.all(15),
-        child: Text(
-          '${books.bookName} ${books.title}',
-        ),
-      );
-    },
-  );
-}
