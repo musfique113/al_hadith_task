@@ -7,7 +7,7 @@ class ChapterController extends GetxController {
 
   ChapterController(this._dataRepository);
 
-  RxList<Chapter> chaptersList = <Chapter>[].obs;
+ List<Chapter> chaptersList = <Chapter>[];
 
   @override
   void onInit() {
